@@ -41,7 +41,8 @@ a:hover {
   background-color: lightblue;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+.site-title a {
   color: inherit !important;
 }
 
@@ -87,6 +88,13 @@ blockquote {
 /* ── Site header ── */
 .site-header {
   text-align: center;
+}
+
+.site-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 150%;
+  letter-spacing: 0.1em;
+  margin: 0;
 }
 
 /* ── Nav ── */
