@@ -1,0 +1,19 @@
+{{ define "main" }}
+<article>
+  <h2>{{ .Title }}</h2>
+  {{ if .Pages }}
+  <ul>
+    {{ range .Pages.ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ if not .Date.IsZero }}
+      — <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p>No pages found.</p>
+  {{ end }}
+</article>
+{{ end }}
