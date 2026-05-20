@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="{{ site.Home.RelPermalink }}css/main.css">
 </head>
 <body>
-  <header>
-    <h1><a href="{{ site.Home.RelPermalink }}">{{ .Site.Title }}</a></h1>
+  <header class="site-header">
+    <h1><a href="{{ site.Home.RelPermalink }}">{{ with site.Home.Params.heading }}{{ . }}{{ else }}{{ site.Title }}{{ end }}</a></h1>
+    {{ with site.Home.Params.tagline }}<p class="tagline">{{ . }}</p>{{ end }}
     <nav>
       <ul>
         {{ range .Site.Menus.main }}

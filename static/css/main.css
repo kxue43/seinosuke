@@ -73,6 +73,19 @@ blockquote {
   border: 1px dashed #aaa;
 }
 
+/* ── Tagline ── */
+.tagline {
+  margin: 0.1em 0 0.5em;
+  font-size: 0.85em;
+  font-style: italic;
+  color: #444;
+}
+
+/* ── Site header ── */
+.site-header {
+  text-align: center;
+}
+
 /* ── Nav ── */
 nav ul {
   list-style: none;
@@ -80,6 +93,7 @@ nav ul {
   margin: 0;
   display: flex;
   gap: 1em;
+  justify-content: flex-start;
 }
 
 /* ── Tables ── */
