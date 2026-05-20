@@ -1,11 +1,14 @@
 {{ define "main" }}
 <article>
+  {{ range site.Menus.main }}
+  {{ $entry := . }}
+  {{ with .Page }}
+  {{ $pages := (where site.RegularPages "Section" .Section).ByDate.Reverse }}
   <section>
-    <h2>Blogs</h2>
-    {{ $blogs := (where .Site.RegularPages "Section" "blogs").ByDate.Reverse }}
-    {{ if $blogs }}
+    <h2>{{ $entry.Name }}</h2>
+    {{ if $pages }}
     <ul>
-      {{ range first 6 $blogs }}
+      {{ range first 6 $pages }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         — <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
@@ -13,26 +16,9 @@
       {{ end }}
     </ul>
     {{ end }}
-    {{ with site.GetPage "/blogs" }}
-    <p><a href="{{ .RelPermalink }}">All blogs →</a></p>
-    {{ end }}
+    <p><a href="{{ .RelPermalink }}">All {{ $entry.Name | lower }} →</a></p>
   </section>
-  <section>
-    <h2>Notes</h2>
-    {{ $notes := (where .Site.RegularPages "Section" "notes").ByDate.Reverse }}
-    {{ if $notes }}
-    <ul>
-      {{ range first 6 $notes }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        — <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-      </li>
-      {{ end }}
-    </ul>
-    {{ end }}
-    {{ with site.GetPage "/notes" }}
-    <p><a href="{{ .RelPermalink }}">All notes →</a></p>
-    {{ end }}
-  </section>
+  {{ end }}
+  {{ end }}
 </article>
 {{ end }}

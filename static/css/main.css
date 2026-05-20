@@ -77,6 +77,14 @@ blockquote {
   border: 1px dashed #aaa;
 }
 
+/* ── Subtitle ── */
+.subtitle {
+  margin: 0.1em 0 1em;
+  font-size: 0.95em;
+  font-style: italic;
+  color: #444;
+}
+
 /* ── Tagline ── */
 .tagline {
   margin: 0.1em 0 0.5em;
