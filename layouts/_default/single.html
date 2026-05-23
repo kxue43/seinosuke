@@ -1,0 +1,17 @@
+{{ define "main" }}
+<article class="entry-content">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+  {{ if not .Date.IsZero }}
+  <p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
+  {{ end }}
+  {{ if .GetTerms "tags" }}
+  <ul>
+    {{ range .GetTerms "tags" }}
+    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{ end }}
+  </ul>
+  {{ end }}
+  {{ .Content }}
+</article>
+{{ end }}
